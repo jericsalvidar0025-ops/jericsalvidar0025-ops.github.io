@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jeric Salvidar | Portfolio</title>
+<style>
+  :root {
+    --accent: #00ffcc;
+    --muted: #bdbdbd;
+  }
+
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { height:100%; scroll-behavior:smooth; }
+
+  body {
+    background: radial-gradient(circle at 10% 10%, #080808 0%, #020203 100%);
+    color:#e0e0e0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    padding:30px;
+    opacity:0;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  body.fade-in { opacity:1; }
+
+  /* Star background */
+  .sky { position:fixed; inset:0; z-index:0; pointer-events:none; }
+  .star {
+    width:4px; height:4px; border-radius:50%; background:var(--accent);
+    position:absolute; opacity:.7; filter:blur(.6px);
+    animation: drift 6s linear infinite;
+  }
+  @keyframes drift {
+    from{transform:translateY(0) translateX(0) scale(0.8);}
+    50%{transform:translateY(-18px) translateX(6px) scale(1);}
+    to{transform:translateY(0) translateX(0) scale(0.8);}
+  }
+
+  .container { position:relative; z-index:2; text-align:center; animation:fadeIn 1.2s ease both; max-width:960px; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(15px);} to{opacity:1;transform:translateY(0);} }
+
+  h1 { font-size:2.8em; color:var(--accent); text-shadow:0 0 18px rgba(0,255,204,0.2); letter-spacing:1px; }
+  p.lead { color:var(--muted); margin-top:10px; font-size:1.05rem; opacity:0.9; }
+
+  .avatar {
+    width:180px; height:180px; border-radius:50%;
+    border:3px solid var(--accent);
+    box-shadow:0 0 25px rgba(0,255,204,0.3);
+    object-fit:cover;
+    transition:transform .3s ease, box-shadow .3s ease;
+    margin:25px auto 0; display:block;
+  }
+  .avatar:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(0,255,204,0.6); }
+
+  .nav { margin-top:25px; }
+  .nav a {
+    display:inline-block; margin:8px 10px; padding:10px 22px;
+    border-radius:999px; color:var(--accent);
+    text-decoration:none; border:1px solid rgba(0,255,204,0.1);
+    transition:all .25s ease;
+  }
+  .nav a:hover {
+    background-color:var(--accent); color:#0d0d0d;
+    box-shadow:0 0 25px var(--accent); transform:translateY(-3px);
+  }
+
+  .whatido { margin-top:45px; color:var(--muted); max-width:640px; margin:auto; line-height:1.6; }
+  .whatido h2 { color:var(--accent); font-size:1.5rem; margin-bottom:12px; text-shadow:0 0 8px rgba(0,255,204,0.2); }
+
+  blockquote { margin-top:40px; font-style:italic; color:var(--muted); border-left:3px solid var(--accent); padding-left:14px; }
+
+  footer { margin-top:40px; color:var(--muted); font-size:.9rem; opacity:0.8; }
+
+  @media(max-width:600px){
+    h1{font-size:2rem;}
+    .avatar{width:140px;height:140px;}
+  }
+</style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="star" style="top:12%; left:8%;"></div>
+    <div class="star" style="top:22%; left:72%;"></div>
+    <div class="star" style="top:48%; left:35%;"></div>
+    <div class="star" style="top:68%; left:85%;"></div>
+    <div class="star" style="top:82%; left:20%;"></div>
+    <div class="star" style="top:36%; left:55%;"></div>
+  </div>
+
+  <div class="container">
+    <h1>Jeric Salvidar</h1>
+    <p class="lead">Web Designer • Customer Service Representative • Computer Science Graduate</p>
+    <img src="jeric.jpg" alt="Jeric Salvidar" class="avatar">
+
+    <div class="nav">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <section class="whatido">
+      <h2>What I Do</h2>
+      <p>I build clean, aesthetic websites and digital designs using simple tools like HTML, CSS, and creativity. With experience in customer service and computer troubleshooting, I combine empathy, logic, and design to create smooth and user-friendly experiences.</p>
+    </section>
+
+    <blockquote>"The best way to predict the future is to create it." – Peter Drucker</blockquote>
+
+    <footer>© 2025 Jeric Salvidar — Made with ❤️ using Notepad</footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+    });
+    window.addEventListener("beforeunload", () => {
+      document.body.style.opacity = "0";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — Jeric Salvidar</title>
+<style>
+  :root{--accent:#00ffcc;--muted:#bdbdbd;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:radial-gradient(circle at 10% 10%, #080808 0%, #020203 100%);
+    color:#e0e0e0;font-family:"Segoe UI",Tahoma,sans-serif;
+    display:flex;align-items:center;justify-content:center;
+    min-height:100vh;padding:40px;text-align:center;overflow:hidden;
+    opacity:0;transition:opacity .6s ease-in-out;
+  }
+  body.fade-in{opacity:1;}
+  .sky{position:fixed;inset:0;z-index:0;pointer-events:none;}
+  .star{width:4px;height:4px;border-radius:50%;background:var(--accent);position:absolute;opacity:.7;animation:drift 6s linear infinite;}
+  @keyframes drift{from{transform:translateY(0)}50%{transform:translateY(-18px)}to{transform:translateY(0)}}
+  .content{position:relative;z-index:2;max-width:960px;width:100%;animation:fadeIn 1.2s ease both;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
+  h1{color:var(--accent);font-size:2rem;text-shadow:0 0 14px rgba(0,255,204,0.25);}
+  .grid{margin-top:25px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .card{background:rgba(255,255,255,0.03);border:1px solid rgba(0,255,204,0.12);padding:20px;border-radius:12px;transition:transform .3s ease, box-shadow .3s ease;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 0 25px rgba(0,255,204,0.15);}
+  .card h3{color:#fff;margin-bottom:8px;}
+  .card p{color:var(--muted);line-height:1.5;}
+  a.back{display:inline-block;margin-top:28px;padding:10px 20px;border-radius:999px;border:1px solid rgba(0,255,204,0.15);color:var(--accent);text-decoration:none;transition:all .25s ease;}
+  a.back:hover{background:var(--accent);color:#0d0d0d;box-shadow:0 0 25px var(--accent);}
+</style>
+</head>
+<body>
+  <div class="sky">
+    <div class="star" style="top:15%; left:25%;"></div>
+    <div class="star" style="top:55%; left:70%;"></div>
+    <div class="star" style="top:85%; left:40%;"></div>
+    <div class="star" style="top:65%; left:10%;"></div>
+  </div>
+  <div class="content">
+    <h1>Projects</h1>
+    <div class="grid">
+      <div class="card">
+        <h3>Personal Portfolio (This Site)</h3>
+        <p>A minimalist, glowing website created entirely with HTML and CSS using Notepad — focusing on clarity, design, and responsiveness.</p>
+      </div>
+      <div class="card">
+        <h3>Design Showcase</h3>
+        <p>A set of modern layouts inspired by neon/cyber aesthetics, demonstrating balance of simplicity and color play.</p>
+      </div>
+      <div class="card">
+        <h3>Data Encoding (Civil Registry)</h3>
+        <p>Helped organize and encode public records efficiently using computer-based management tools with data accuracy.</p>
+      </div>
+    </div>
+    <a href="index.html" class="back">⬅ Back to Home</a>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded",()=>document.body.classList.add("fade-in"));
+    window.addEventListener("beforeunload",()=>document.body.style.opacity="0");
+  </script>
+</body>
+</html>
